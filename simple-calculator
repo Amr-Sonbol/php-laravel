@@ -1,0 +1,35 @@
+<?php
+
+if(isset($_POST['submit'])){    
+    $cal = $_POST['cal'];
+    $number1= $_POST['num1'];
+    $number2= $_POST['num2'];
+    if($cal=='sum'){
+        $result=$number1+$number2;}
+    elseif($cal=='subtract'){
+        $result=$number1-$number2;
+        }
+    elseif($cal=='multiply'){
+        $result=$number1*$number2;
+            }
+    elseif($cal=='divided by'){
+        $result=$number1/$number2;
+}
+
+}
+
+?>
+<h1>Simple calculator</h1>
+<form action="" method="post" >
+<input type="text" name="num1" placeholder="number1" value="<?php echo htmlspecialchars($number1, ENT_QUOTES)?>">
+<select name="cal" >
+    <option value="">please select</option>
+    <option value="sum" <?php if ($cal == 'sum'){echo ' selected';} ?>>+</option>
+    <option value="subtract" <?php if ($cal == 'subtract'){echo ' selected';} ?>>-</option>
+    <option value="multiply" <?php if ($cal == 'multiply'){echo ' selected';}?>>*</option>
+    <option value="divided by" <?php if ($cal == 'divided by'){echo ' selected';}?>>/</option>
+</select>
+<input type="text" name="num2" placeholder="number2" value="<?php echo htmlspecialchars($number2, ENT_QUOTES)?>">
+<button type="submit" name="submit" value="submit" >=</button>
+<input readonly="readonly" name="CalculatorResult" value="<?php echo $result; ?>">
+</form>
